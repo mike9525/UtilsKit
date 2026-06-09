@@ -32,8 +32,14 @@ public actor TaskQueue {
 			}
 			
 			self.task = currentTask
-			try await _ = currentTask.value
-			currentTask.cancel()
+			
+			do {
+				try await _ = currentTask.value
+				currentTask.cancel()
+			} catch {
+				currentTask.cancel()
+				throw error
+			}
 		}
 	}
 	
@@ -46,8 +52,13 @@ public actor TaskQueue {
 			}
 			
 			self.task = currentTask
-			try await _ = currentTask.value
-			currentTask.cancel()
+			do {
+				try await _ = currentTask.value
+				currentTask.cancel()
+			} catch {
+				currentTask.cancel()
+				throw error
+			}
 		} else {
 			try await self.fire(block)
 		}
