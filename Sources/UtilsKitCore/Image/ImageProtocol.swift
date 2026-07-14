@@ -18,6 +18,6 @@ extension Data: ImageProtocol { }
 import SwiftUI
 extension Image: ImageProtocol { }
 
-@available(iOS 17.0, *)
+@available(iOS 17.0, watchOS 10.0, *)
 extension ImageResource: ImageProtocol { }
 #endif

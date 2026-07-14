@@ -10,6 +10,7 @@
 import Foundation
 import UIKit
 
+@available(watchOS, unavailable)
 extension URL {
 	
 	/// Asynchronously downloads the image at this URL, optionally resizes it to fit within a maximum dimension,
@@ -51,6 +52,7 @@ extension URL {
 	}
 }
 
+@available(watchOS, unavailable)
 private extension UIImage {
 	
 	func resized(maxDimension: CGFloat) -> UIImage {
